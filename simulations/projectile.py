@@ -1,17 +1,17 @@
-import streamlit as st
 import numpy as np
 import plotly.graph_objects as go
+import streamlit as st
 
 
 def show_projectile():
-    st.header("🏀 Projectile Motion")
+    st.header("Projectile Motion")
 
     col_controls, col_graph = st.columns([1, 2])
 
     with col_controls:
         velocity = st.slider("Initial velocity (m/s)", 5.0, 100.0, 30.0)
         angle = st.slider("Launch angle (degrees)", 5.0, 85.0, 45.0)
-        gravity = st.slider("Gravity (m/s²)", 1.0, 20.0, 9.8)
+        gravity = st.slider("Gravity (m/s^2)", 1.0, 20.0, 9.8)
 
     theta = np.radians(angle)
 
@@ -29,13 +29,13 @@ def show_projectile():
         template="plotly_dark",
         xaxis_title="Horizontal distance (m)",
         yaxis_title="Height (m)",
-        height=550
+        height=550,
     )
 
     with col_graph:
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
-    max_height = (velocity**2 * np.sin(theta)**2) / (2 * gravity)
+    max_height = (velocity**2 * np.sin(theta) ** 2) / (2 * gravity)
     range_distance = (velocity**2 * np.sin(2 * theta)) / gravity
 
     c1, c2, c3 = st.columns(3)

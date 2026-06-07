@@ -1,13 +1,11 @@
-import streamlit as st
 import numpy as np
 import plotly.graph_objects as go
+import streamlit as st
 
 
 def show_waves():
-    st.header("🌊 Wave Simulation")
-    st.write(
-        "Explore how amplitude, frequency and phase affect a periodic wave."
-    )
+    st.header("Wave Simulation")
+    st.write("Explore how amplitude, frequency, and phase affect a periodic wave.")
 
     col_controls, col_graph = st.columns([1, 2])
 
@@ -32,14 +30,13 @@ def show_waves():
         formula = r"y = A \cos(fx + \phi)"
 
     fig = go.Figure()
-
     fig.add_trace(
         go.Scatter(
             x=x,
             y=y,
             mode="lines",
             name=wave_type,
-            line=dict(width=4)
+            line=dict(width=4),
         )
     )
 
@@ -48,11 +45,11 @@ def show_waves():
         template="plotly_dark",
         xaxis_title="x",
         yaxis_title="y",
-        height=550
+        height=550,
     )
 
     with col_graph:
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("### Mathematical model")
     st.latex(formula)
