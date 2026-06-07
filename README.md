@@ -75,13 +75,8 @@ python -m streamlit run app.py
 
 ## Live Demo
 
-Live demo: add your deployed Streamlit Community Cloud URL here.
+Live demo: [https://physics-data-lab-g9p.streamlit.app/]
 
-Suggested deployment target:
-
-```text
-https://share.streamlit.io/
-```
 
 ## Project Structure
 
